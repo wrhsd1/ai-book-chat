@@ -51,15 +51,25 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to={"/books/charlottes-web"}>Charlotte's Web</Link>
           </li>
           <li>
-            <Link to="/books/charlottes-web">Charlotte's Web</Link>
+            <Link to="/books/james-and-the-giant-peach">
+              James and the Giant Peach
+            </Link>
+          </li>
+          <li>
+            <Link to="/books/a-wrinkle-in-time">A Wrinkle in Time</Link>
           </li>
         </ul>
       </nav>
       <Switch>
         <Route exact path="/">
+          <div className="App">
+            <header className="App-header">AI Book Chat</header>
+          </div>
+        </Route>
+        <Route path="/add">
           <div className="App">
             <header className="App-header">
               <form onSubmit={handleSubmit}>
@@ -93,7 +103,7 @@ function App() {
           </div>
         </Route>
         <Route
-          path="/books/:handle"
+          path={"/books/:handle"}
           render={({ match }) => <Book handle={match.params.handle} />}
         />
       </Switch>
